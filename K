@@ -1,0 +1,12 @@
+int mahsa =5;
+void setub() {
+pinMode (mahsa , OUTPUT);
+//put your setup code here , to run once:
+}
+void loop() {
+digitalWrite (mahsa , HIGH);
+delay(3000);
+digitalWrite(mahsa , LOW);
+delay(3000);
+//put your main code here, to run repeatedly:
+}
