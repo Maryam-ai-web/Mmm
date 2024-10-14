@@ -1,12 +1,50 @@
-int mahsa =5;
 void setub() {
-pinMode (mahsa , OUTPUT);
+Serial.begin(9600);
+Serial.println("calculator is inter! enter the operation");
+Serial.println("example: 5+3 or 7.5*3 ");
 //put your setup code here , to run once:
 }
 void loop() {
-digitalWrite (mahsa , HIGH);
-delay(3000);
-digitalWrite(mahsa , LOW);
-delay(3000);
-//put your main code here, to run repeatedly:
+if (Serialavailable() >0)
+{
+num1 = Serial.parseFloat();
+operation = Serial.read();
+num2 =Serial.parseFloat();
+switch (operation)
+{
+case '+' :
+result = num1+num2;
+Serial.prinr ("Result:");
+Serial.println(result);
+break;
+case '_' :
+result = num1-num2;
+Serial.print (" Result:");
+Serial.println(result);
+break;
+case '*':
+result = num1*num2;
+Serial.print("Result:");
+Serial.println(result);
+break;
+case '/' :
+if (num2 !=0){
+result = num1/num2;
+Serial.print("Result:");
+Serial.println(result);
+}
+else
+{
+Serial.println("Error");
+}
+break;
+default:
+Serial.println("Error");
+break;
+}
+While(Serial.available()>0)
+{
+Serial.read();
+}
+Serial.println("enter next operatio");
 }
